@@ -1,7 +1,7 @@
 # algorithm-go
 This is my personal algorithmic practics, implemented with Golang.
 
-What's your problem?
+No problem?
 
 Are you ok?
 
