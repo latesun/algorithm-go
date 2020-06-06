@@ -17,43 +17,39 @@ func NewArrayStack() *ArrayStack {
 	}
 }
 
-func (a *ArrayStack) IsEmpty() bool {
-	if a.top < 0 {
-		return true
-	}
-	return false
+func (s *ArrayStack) IsEmpty() bool {
+	return s.top < 0
 }
 
-func (a *ArrayStack) Push(v interface{}) {
-	if a.top < 0 {
-		a.top = 0
+func (s *ArrayStack) Push(v interface{}) {
+	if s.top < 0 {
+		s.top = 0
 	} else {
-		a.top += 1
+		s.top += 1
 	}
 
-	if a.top > len(a.data)-1 {
-		a.data = append(a.data, v)
+	if s.top > len(s.data)-1 {
+		s.data = append(s.data, v)
 	} else {
-		a.data[a.top] = v
+		s.data[s.top] = v
 	}
 }
 
-func (a *ArrayStack) Pop() interface{} {
-	if a.IsEmpty() {
+func (s *ArrayStack) Pop() interface{} {
+	if s.IsEmpty() {
 		return nil
 	}
-	v := a.data[a.top]
-	a.top -= 1
 
-	return v
+	s.top -= 1
+	return s.data[s.top+1]
 }
 
-func (a *ArrayStack) Print() {
-	if a.IsEmpty() {
+func (s *ArrayStack) Print() {
+	if s.IsEmpty() {
 		fmt.Println("empty stack")
 	}
 
-	for i := a.top; i >= 0; i-- {
-		fmt.Println(a.data[i])
+	for i := s.top; i >= 0; i-- {
+		fmt.Println(s.data[i])
 	}
 }

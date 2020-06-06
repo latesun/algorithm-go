@@ -10,7 +10,8 @@ func TestArrayPush(t *testing.T) {
 	a.Push(1)
 	t.Log(a.IsEmpty())
 
-	//a.Push(2)
-	//a.Push(3)
-	//t.Log(a)
+	a.Push(2)
+	a.Push(3)
+	a.Push("hello")
+	t.Logf("%+v\n", a)
 }
